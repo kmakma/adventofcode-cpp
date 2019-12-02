@@ -25,7 +25,7 @@ private:
 
     static void runIntcodeProgram(vector<int> *);
 
-    static vector<int> determineIntcodeProgramForIndex0(vector<int>, int);
+    static vector<int> determineIntcodeProgramForIndex0(vector<int> vec);
 
     void task1IntcodeProgramRestoreProgram();
 
@@ -34,6 +34,5 @@ private:
 protected:
     string getPathInInputDir() override;
 };
-
 
 #endif //ADVENTOFCODE_Y2019DAY02_H

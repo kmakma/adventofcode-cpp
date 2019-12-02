@@ -9,7 +9,7 @@ string Y2019Day01::getPathInInputDir() {
 }
 
 Y2019Day01::Y2019Day01() {
-    inputVector = inputLinesToIntVector();
+    inputVector = linesToIntVector();
 }
 
 void Y2019Day01::solve() {

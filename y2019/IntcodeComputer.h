@@ -1,0 +1,12 @@
+//
+// Created by MKoni on 02.12.2019.
+//
+
+#ifndef ADVENTOFCODE_INTCODECOMPUTER_H
+#define ADVENTOFCODE_INTCODECOMPUTER_H
+
+class IntcodeComputer {
+
+};
+
+#endif //ADVENTOFCODE_INTCODECOMPUTER_H

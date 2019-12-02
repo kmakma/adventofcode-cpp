@@ -9,8 +9,7 @@ string Y2019Day02::getPathInInputDir() {
 }
 
 Y2019Day02::Y2019Day02() {
-    inputVector = inputCSVLineToIntVector();
-//    inputVector = separateStringToIntVector("1,1,1,4,99,5,6,0,99");
+    inputVector = csvLineToIntVector();
 }
 
 void Y2019Day02::solve() {
@@ -67,11 +66,11 @@ void Y2019Day02::task1IntcodeProgramRestoreProgram() {
 
 void Y2019Day02::task2IntcodeProgramGravityAssist() {
     // todo check i=1,2 with n=0..99 until [0]=19690720
-    vector<int> gravityAssistIntcodeProgram = determineIntcodeProgramForIndex0(inputVector, 19690720);
+    vector<int> gravityAssistIntcodeProgram = determineIntcodeProgramForIndex0(inputVector);
     task2InitialParameterCode = 100 * gravityAssistIntcodeProgram[1] + gravityAssistIntcodeProgram[2];
 }
 
-vector<int> Y2019Day02::determineIntcodeProgramForIndex0(vector<int> vec, int index0) {
+vector<int> Y2019Day02::determineIntcodeProgramForIndex0(vector<int> vec) {
     for (int i1 = 0; i1 <= 100; i1++) {
         vec[1] = i1;
         for (int i2 = 0; i2 <= 100; i2++) {

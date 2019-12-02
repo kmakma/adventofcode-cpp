@@ -6,35 +6,17 @@
 #define ADVENTOFCODE_DAY_H
 
 #include <iostream>
-#include <fstream>
-#include <functional>
-#include <sstream>
-#include <string>
-#include <vector>
+#include "InputParser.h"
 
 using namespace std;
 
-class Day {
+class Day : protected InputParser {
 public:
-    virtual void solve() = 0;
-
     virtual void printDay() = 0;
 
+    virtual void solve() = 0;
+
     void solveAndPrint();
-
-protected:
-    virtual string getPathInInputDir() = 0;
-
-    vector<int> inputLinesToIntVector();
-    vector<int> inputCSVLineToIntVector();
-
-    static vector<int> separateStringToIntVector(const string& str);
-private:
-
-    string inputDir = R"(..\input\)";
-    template<class T>
-    vector<T> parseInput(function<vector<T>(ifstream &)> function);
 };
-
 
 #endif //ADVENTOFCODE_DAY_H

@@ -32,9 +32,6 @@ private:
 
 protected:
     string getPathInInputDir() override;
-
-
 };
-
 
 #endif //ADVENTOFCODE_Y2019DAY01_H
