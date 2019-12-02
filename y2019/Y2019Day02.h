@@ -1,0 +1,14 @@
+//
+// Created by MKoni on 02.12.2019.
+//
+
+#ifndef ADVENTOFCODE_Y2019DAY02_H
+#define ADVENTOFCODE_Y2019DAY02_H
+
+
+class Y2019Day02 {
+
+};
+
+
+#endif //ADVENTOFCODE_Y2019DAY02_H
