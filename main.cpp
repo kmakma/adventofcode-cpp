@@ -10,7 +10,7 @@ int main() {
                  " *  Welcome to Advent of Code Solutions  *\n"
                  " *       provided to you by kmakma       *\n"
                  " * * * * * * * * * * * * * * * * * * * * *" << std::endl;
-//    Y2019Day01().solveAndPrint();
+    Y2019Day01().solveAndPrint();
     Y2019Day02().solveAndPrint();
     return 0;
 }

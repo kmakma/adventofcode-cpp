@@ -6,15 +6,24 @@
 #define ADVENTOFCODE_Y2019DAY01_H
 
 #include <cmath>
-#include "../Day.h"
+#include "Y2019Day.h"
 
-class Y2019Day01 : public Day {
+class Y2019Day01 : public Y2019Day {
 public:
     Y2019Day01();
 
     void solve() override;
 
-    void printDay() override;
+protected:
+    int getDay() override;
+
+    string getDescriptionTask1() override;
+
+    string getDescriptionTask2() override;
+
+    string getResultTask1() override;
+
+    string getResultTask2() override;
 
 private:
     vector<int> inputVector;
@@ -29,9 +38,6 @@ private:
     static int fuelForWeight(int);
 
     static int fuelForFuel(int);
-
-protected:
-    string getPathInInputDir() override;
 };
 
 #endif //ADVENTOFCODE_Y2019DAY01_H

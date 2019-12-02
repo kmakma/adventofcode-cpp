@@ -4,10 +4,6 @@
 
 #include "Y2019Day01.h"
 
-string Y2019Day01::getPathInInputDir() {
-    return R"(2019\01.txt)";
-}
-
 Y2019Day01::Y2019Day01() {
     inputVector = linesToIntVector();
 }
@@ -15,21 +11,6 @@ Y2019Day01::Y2019Day01() {
 void Y2019Day01::solve() {
     task1FuelForModules();
     task2FuelForModulesAndFuel();
-}
-
-void Y2019Day01::printDay() {
-    cout << "** Year 2019 - Day 1 **" << endl;
-    if (task1FuelForAllModules > 0) {
-        cout << "Task 1; Fuel for all modules:\n" << task1FuelForAllModules << endl;
-    } else {
-        cout << "Day 1 not solved yet!" << endl;
-        return;
-    }
-    if (task2FuelForAllModulesAndFuel > 0) {
-        cout << "Task 2; Fuel for all modules and the fuel itself:\n" << task2FuelForAllModulesAndFuel << endl;
-    } else {
-        cout << "Day 1 Task 2 not solved yet!" << endl;
-    }
 }
 
 void Y2019Day01::task1FuelForModules() {
@@ -64,4 +45,30 @@ int Y2019Day01::fuelForFuel(int fuelWeight) {
         partialFuel = fuelForWeight(partialFuel);
     }
     return fuelForFuel;
+}
+
+int Y2019Day01::getDay() {
+    return 1;
+}
+
+string Y2019Day01::getDescriptionTask1() {
+    return "Fuel for all modules:";
+}
+
+string Y2019Day01::getDescriptionTask2() {
+    return "Fuel for all modules and for the fuel itself:";
+}
+
+string Y2019Day01::getResultTask1() {
+    if (task1FuelForAllModules > 0) {
+        return to_string(task1FuelForAllModules);
+    }
+    return notSolvedString;
+}
+
+string Y2019Day01::getResultTask2() {
+    if (task2FuelForAllModulesAndFuel > 0) {
+        return to_string(task2FuelForAllModulesAndFuel);
+    }
+    return notSolvedString;
 }

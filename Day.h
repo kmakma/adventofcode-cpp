@@ -12,11 +12,28 @@ using namespace std;
 
 class Day : protected InputParser {
 public:
-    virtual void printDay() = 0;
-
     virtual void solve() = 0;
 
     void solveAndPrint();
+
+    void printResults();
+
+protected:
+    const string notSolvedString = "task not solved yet!";
+
+    virtual int getYear() = 0;
+
+    virtual int getDay() = 0;
+
+    virtual string getDescriptionTask1() = 0;
+
+    virtual string getDescriptionTask2() = 0;
+
+    virtual string getResultTask1() = 0;
+
+    virtual string getResultTask2() = 0;
+
+    string getPathInInputDir() override;
 };
 
 #endif //ADVENTOFCODE_DAY_H

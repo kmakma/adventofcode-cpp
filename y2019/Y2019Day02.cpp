@@ -4,10 +4,6 @@
 
 #include "Y2019Day02.h"
 
-string Y2019Day02::getPathInInputDir() {
-    return R"(2019\02.txt)";
-}
-
 Y2019Day02::Y2019Day02() {
     inputVector = csvLineToIntVector();
 }
@@ -15,21 +11,6 @@ Y2019Day02::Y2019Day02() {
 void Y2019Day02::solve() {
     task1IntcodeProgramRestoreProgram();
     task2IntcodeProgramGravityAssist();
-}
-
-void Y2019Day02::printDay() {
-    cout << "** Year 2019 - Day 2 **" << endl;
-    if (task1Index0OfProgram >= 0) {
-        cout << "Task 1; Index of run program:\n" << task1Index0OfProgram << endl;
-    } else {
-        cout << "Day 2 Task 1 not solved yet!" << endl;
-    }
-    if (task2InitialParameterCode >= 0) {
-        cout << "Task 2; Start parameter for specified output:\n" << task2InitialParameterCode << endl;
-    } else {
-        cout << "Day 2 Task 2 not solved yet!" << endl;
-    }
-
 }
 
 vector<int> Y2019Day02::runIntcodeProgram(vector<int> intcodeProgram) {
@@ -65,7 +46,6 @@ void Y2019Day02::task1IntcodeProgramRestoreProgram() {
 }
 
 void Y2019Day02::task2IntcodeProgramGravityAssist() {
-    // todo check i=1,2 with n=0..99 until [0]=19690720
     vector<int> gravityAssistIntcodeProgram = determineIntcodeProgramForIndex0(inputVector);
     task2InitialParameterCode = 100 * gravityAssistIntcodeProgram[1] + gravityAssistIntcodeProgram[2];
 }
@@ -81,4 +61,32 @@ vector<int> Y2019Day02::determineIntcodeProgramForIndex0(vector<int> vec) {
         }
     }
     return vector<int>();
+}
+
+int Y2019Day02::getDay() {
+    return 2;
+}
+
+string Y2019Day02::getDescriptionTask1() {
+    return "Index 0 for program with set parameter:";
+}
+
+string Y2019Day02::getDescriptionTask2() {
+    return "Parameter for program with set index:";
+}
+
+string Y2019Day02::getResultTask1() {
+    if (task1Index0OfProgram >= 0) {
+        return to_string(task1Index0OfProgram);
+    } else {
+        return notSolvedString;
+    }
+}
+
+string Y2019Day02::getResultTask2() {
+    if (task2InitialParameterCode >= 0) {
+        return to_string(task2InitialParameterCode);
+    } else {
+        return notSolvedString;
+    }
 }
