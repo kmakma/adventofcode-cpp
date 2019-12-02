@@ -18,9 +18,6 @@ public:
 
     void printResults();
 
-protected:
-    const string notSolvedString = "task not solved yet!";
-
     virtual int getYear() = 0;
 
     virtual int getDay() = 0;
@@ -32,6 +29,9 @@ protected:
     virtual string getResultTask1() = 0;
 
     virtual string getResultTask2() = 0;
+
+protected:
+    const string notSolvedString = "task not solved yet!";
 
     string getPathInInputDir() override;
 };
