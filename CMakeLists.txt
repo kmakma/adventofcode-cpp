@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.15)
 project(adventOfCode)
 
-set(CMAKE_CXX_STANDARD 14)
+add_definitions(-std=c++11)
 
-add_executable(adventOfCode main.cpp Day.cpp Day.h y2019/Y2019Day01.cpp y2019/Y2019Day01.h y2019/Y2019Day02.cpp y2019/Y2019Day02.h InputParser.cpp InputParser.h y2019/IntcodeComputer.cpp y2019/IntcodeComputer.h y2019/Y2019Day.h y2019/Y2019Day03.cpp y2019/Y2019Day03.h)
+set(SOURCE_FILES main.cpp)
+add_executable(aoc_run ${SOURCE_FILES})
+
+include_directories(aoc)
+
+add_subdirectory(aoc)
+#add_subdirectory(aoc_tests)
+
+target_link_libraries(aoc_run aoc)
