@@ -6,8 +6,33 @@
 #define ADVENTOFCODE_Y2019DAY02_H
 
 
-class Y2019Day02 {
+#include "../Day.h"
 
+class Y2019Day02 : public Day {
+public:
+    Y2019Day02();
+
+    void solve() override;
+
+    void printDay() override;
+
+private:
+    vector<int> inputVector;
+    int task1Index0OfProgram = -1;
+    int task2InitialParameterCode = -1;
+
+    static vector<int> runIntcodeProgram(vector<int>);
+
+    static void runIntcodeProgram(vector<int> *);
+
+    static vector<int> determineIntcodeProgramForIndex0(vector<int>, int);
+
+    void task1IntcodeProgramRestoreProgram();
+
+    void task2IntcodeProgramGravityAssist();
+
+protected:
+    string getPathInInputDir() override;
 };
 
 

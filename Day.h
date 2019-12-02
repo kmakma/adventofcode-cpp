@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <functional>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -25,10 +26,12 @@ protected:
     virtual string getPathInInputDir() = 0;
 
     vector<int> inputLinesToIntVector();
+    vector<int> inputCSVLineToIntVector();
 
+    static vector<int> separateStringToIntVector(const string& str);
 private:
-    string inputDir = R"(..\input\)";
 
+    string inputDir = R"(..\input\)";
     template<class T>
     vector<T> parseInput(function<vector<T>(ifstream &)> function);
 };

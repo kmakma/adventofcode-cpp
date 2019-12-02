@@ -19,8 +19,8 @@ public:
 private:
     vector<int> inputVector;
     vector<int> taskt1FuelForModules;
-    int task1FuelForAllModules = -1;
-    int task2FuelForAllModulesAndFuel = -1;
+    int task1FuelForAllModules = 0;
+    int task2FuelForAllModulesAndFuel = 0;
 
     void task1FuelForModules();
 
@@ -30,7 +30,8 @@ private:
 
     static int fuelForFuel(int);
 
-    std::string getPathInInputDir() override;
+protected:
+    string getPathInInputDir() override;
 
 
 };

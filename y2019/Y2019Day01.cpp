@@ -4,7 +4,7 @@
 
 #include "Y2019Day01.h"
 
-std::string Y2019Day01::getPathInInputDir() {
+string Y2019Day01::getPathInInputDir() {
     return R"(2019\01.txt)";
 }
 
@@ -28,7 +28,7 @@ void Y2019Day01::printDay() {
     if (task2FuelForAllModulesAndFuel > 0) {
         cout << "Task 2; Fuel for all modules and the fuel itself:\n" << task2FuelForAllModulesAndFuel << endl;
     } else {
-        cout << "Day 1 Task 2 not solved yet!";
+        cout << "Day 1 Task 2 not solved yet!" << endl;
     }
 }
 
@@ -65,11 +65,3 @@ int Y2019Day01::fuelForFuel(int fuelWeight) {
     }
     return fuelForFuel;
 }
-
-
-
-// TODO inputLinesToIntVector if vector size == 0 "Problem with reading input file ([file])"
-
-//std::string Y2019Day01::getPathInInputDir() {
-//    return std::__cxx11::string();
-//}
