@@ -4,6 +4,31 @@
 
 #include "InputParser.h"
 
+vector<int> InputParser::csvLineToIntVector() {
+    function<vector<int>(ifstream &)> readCSVLineToIntVector = [](ifstream &inputFile) -> vector<int> {
+        string line;
+        vector<int> numbers;
+        if (inputFile >> line) {
+            numbers = csvStringToIntVector(line);
+        }
+        return numbers;
+    };
+    return parseInput(readCSVLineToIntVector);
+}
+
+vector<vector<string>> InputParser::csvLinesToStringVectors() {
+    function<vector<vector<string>>(ifstream &)> readCSVLinesToStringVectors = [](
+            ifstream &inputFile) -> vector<vector<string>> {
+        vector<vector<string>> stringVectors;
+        string line;
+        while (inputFile >> line) {
+            stringVectors.push_back(csvStringToStringVector(line));
+        }
+        return stringVectors;
+    };
+    return parseInput(readCSVLinesToStringVectors);
+}
+
 vector<int> InputParser::linesToIntVector() {
     function<vector<int>(ifstream &)> readLinesToIntVector = [](ifstream &inputFile) -> vector<int> {
         int currentNumber = 0;
@@ -14,18 +39,6 @@ vector<int> InputParser::linesToIntVector() {
         return numbers;
     };
     return parseInput(readLinesToIntVector);
-}
-
-vector<int> InputParser::csvLineToIntVector() {
-    function<vector<int>(ifstream &)> readCSVLineToIntVector = [](ifstream &inputFile) -> vector<int> {
-        string line;
-        vector<int> numbers;
-        if (inputFile >> line) {
-            numbers = separateStringToIntVector(line);
-        }
-        return numbers;
-    };
-    return parseInput(readCSVLineToIntVector);
 }
 
 template<class T>
@@ -42,7 +55,7 @@ vector<T> InputParser::parseInput(function<vector<T>(ifstream &)> function) {
     }
 }
 
-vector<int> InputParser::separateStringToIntVector(const string &str) {
+vector<int> InputParser::csvStringToIntVector(const string &str) {
     vector<int> numbers;
     stringstream ss(str);
     string word;
@@ -50,4 +63,14 @@ vector<int> InputParser::separateStringToIntVector(const string &str) {
         numbers.push_back(stoi(word));
     }
     return numbers;
+}
+
+vector<string> InputParser::csvStringToStringVector(const string &str) {
+    vector<string> strings;
+    stringstream ss(str);
+    string word;
+    while (getline(ss, word, ',')) {
+        strings.push_back(word);
+    }
+    return strings;
 }

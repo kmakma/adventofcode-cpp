@@ -17,9 +17,11 @@ class InputParser {
 protected:
     virtual string getPathInInputDir() = 0;
 
-    vector<int> linesToIntVector();
-
     vector<int> csvLineToIntVector();
+
+    vector<vector<string>> csvLinesToStringVectors();
+
+    vector<int> linesToIntVector();
 
 private:
     const string defaultInputDir = R"(..\input\)";
@@ -28,8 +30,9 @@ private:
     template<class T>
     vector<T> parseInput(function<vector<T>(ifstream &)> function);
 
-    static vector<int> separateStringToIntVector(const string &);
+    static vector<int> csvStringToIntVector(const string & str);
 
+    static vector<string> csvStringToStringVector(const string &str);
 };
 
 #endif //ADVENTOFCODE_INPUTPARSER_H
